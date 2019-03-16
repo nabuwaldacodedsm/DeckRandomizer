@@ -11,9 +11,11 @@ public class Runner {
     public static void main(String[] args) {
         Map<String, List<Integer>> deck = createDeck();
 
-        for (int i = 0; i < 50; i++) {
-            List<Card> chosenCards = DeckRandomizer.chooseRandomCards(deck, 2);
-            System.out.println("chosenCards = " + chosenCards);
+        for (int i = 0; i < 54; i++) {
+            List<Card> chosenCards = DeckRandomizer.chooseRandomCards(deck, 1);
+            Card card = chosenCards.get(0);
+            deck.get(card.suit).remove(card.value);
+            System.out.println(i + " chosenCards = " + chosenCards);
         }
 
     }
